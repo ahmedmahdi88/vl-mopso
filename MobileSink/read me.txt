@@ -1,0 +1,11 @@
+this is "initial version"
+
+VLMOPSO => Variable length
+
+mopso-with-addhock-variable-length => fixed length with add hock by zero padding for variable length processing
+
+NSGA-II- Math => AdHoc NSGA-II
+
+to do visualization:
+Go to: VLMOPSO--> VISUALIZATION--> Comparison Visualization--> MainFile or ttestSetCove
+or visualizeSink

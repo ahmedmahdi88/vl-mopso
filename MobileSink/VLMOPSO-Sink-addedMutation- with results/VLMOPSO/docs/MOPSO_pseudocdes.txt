@@ -1,0 +1,25 @@
+The algorithm of MOPS0 is the following:
+1. Initialize the population POP:
+(a) FORi=0TOMAX /*MAX=numberof particles */
+(b) Initialize POP[(]
+2. Initialize the speed of each particle:
+(a) FORi=0TOMAX (b) 
+VEL[i]= 0
+3. Evaluate each of the particles in POP.
+4. Store the positions of the particles that represent
+nondominated vectors in the repository REP.
+5. Generate hypercubes of the search space explored so far, and locate the particles using these hyper- cubes as a coordinate system where each particle's coordinates are defined according to the values of its objective functions.
+6.Initialize the memory of each particle (this memory servesasa guide to travel through the search space. This memory is also stored in the repository):
+(a) FORi=0 TO MAX (b) PBESTS[i]= POP[i]
+7. WHILE maximum number of cycles has not been reached DO
+a-Compute the speed of each particle1 using the following expression:
+V E L [ i ]= W x V E L [ i ]+ R 1 x (PBESTS[i]- POP[i])+ Ra x (REP[h]- POP[i])
+where W (inertia weight) takes a value of 0.4; R1 and R2 are random numbers in the range [0..1];PBESTS[i]is the best position that the particle i has had; REP[h]is a value that is taken from the repository; the index h is selected in the following way: those hypercubes containing more than one particle are assigned a fitness equal to the result of dividing any number z > 1 (we used z = 10 in our experiments) by the number of particles that they contain. This aims to decrease the fitness of those hypercubes that contain more particles and it can be seen as a form of fitness sharing. Then, we apply roulette- wheel selection using these fitness values to select the hypercube from which we will take the corresponding particle. Once the hypercube has been selected, we select randomly a particle within such hypercube. POP[i] is the current value of the particle i.
+b-Compute the new positions of the particles adding the speed produced from the previous step:
+POP[i]= POP[i]+VEL[i] (1)
+c-Maintain the particles within the search space in case they go beyond its boundaries (avoid generating solutions that do not lie on valid search space).
+d-Evaluate each of the particles in POP.
+e-Update the contents of REP together with the geographical representation of the particles within the hypercubes. This update consists of inserting all the currently nondominated locations into the repository. Any dominated locations from the repository are eliminated in the process. Since the size of the repository is limited, whenever it gets full, we apply a secondary criterion for retention: those particles located in less populated areas of objective space are given priority overthose lying in highly populated regions) When the current position of the particle is better than the position contained in its memory, the particle’s position is updated.
+The criterion to decide what position from memory should be retained is simply to apply Pareto dominance (i.e., if the current position is dominated by the position in memory, then the position in memory is kept; otherwise, the current position replaces the one in memory; if neither of them is dominated by the other, then we select one of them randomly).
+(g) Increment the loop counter 8. 
+END WHILE

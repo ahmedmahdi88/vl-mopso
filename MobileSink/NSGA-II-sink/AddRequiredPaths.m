@@ -1,0 +1,4 @@
+
+currentFolder = pwd;
+addpath([currentFolder])
+

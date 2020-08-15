@@ -1,0 +1,5 @@
+this is "initial version"
+
+VLMOPSO => Variable length
+
+mopso-with-addhock-variable-length => fixed length with add hock by zero padding for variable length processing
