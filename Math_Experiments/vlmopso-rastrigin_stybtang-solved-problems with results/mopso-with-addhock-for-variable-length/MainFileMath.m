@@ -1,6 +1,6 @@
 clear;clc;
 AddRequiredPaths;
-popSize=200;
+popSize=500;
 nobj=2;
 lowerBound_pos=-5.12;
 heigherBound_pos=5.12;
@@ -18,7 +18,7 @@ for s=2:2
     rng(s);
 [t,paretoFront,paretoSet ,NC,classes,pop]=RunAlgorithm(s,objfun,popSize,nobj,RepSize,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,nGrid,alpha,numberOfIter,w,pMutate,mutationRatio);
  currentFolder=pwd;
-path2 =[currentFolder '\Results_Math_rastrigin_stybtang-pop=200\scenario-' num2str(s) '\scenario-' num2str(s) '.mat' ];
+path2 =[currentFolder '\Results_Math_rastrigin_stybtang\scenario-' num2str(s) '\scenario-' num2str(s) '.mat' ];
 if ~exist(path2, 'dir')
        mkdir(path2)
 end

@@ -87,9 +87,9 @@ mn=min(pop(i).Dim,Rep(h).Dim);
 %         tmp=round(tmp);
 %         tmp(1:pop(i).Dim)=checkBounds( tmp(1:pop(i).Dim));
 %%%%%%%%%%%%%%% Mutation
-% if rand<pMutate
-%           tmp(1:pop(i).Dim)=mutationPso(tmp(1:pop(i).Dim),mutationRatio,lowerBound_pos,heigherBound_pos);
-%          end
+if rand<pMutate
+          tmp(1:pop(i).Dim)=mutationPso(tmp(1:pop(i).Dim),mutationRatio,lowerBound_pos,heigherBound_pos);
+         end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           tmp(pop(i).Dim+1: end)=0;
      
@@ -181,14 +181,14 @@ Rep=DetermineDomination(Rep);
         end
     end
      Rep(ind)=[];
-    for i=1:numel(Rep)
-         Rep(i)=FindGridIndex(Rep(i),Grid);
-       gi(i)=Rep(i).GridIndex;
-    end
-    uniq=(unique(gi));
-     while numel(Rep)>RepSize
-        Rep=deleteFromRep(uniq,Rep);
-    end
+%     for i=1:numel(Rep)
+%          Rep(i)=FindGridIndex(Rep(i),Grid);
+%        gi(i)=Rep(i).GridIndex;
+%     end
+%     uniq=(unique(gi));
+%      while numel(Rep)>RepSize
+%         Rep=deleteFromRep(uniq,Rep);
+%     end
     for i=1:length(Rep)
        paretoFront=[paretoFront ;Rep(i).cost];  
     end

@@ -181,14 +181,14 @@ Rep=DetermineDomination(Rep);
         end
     end
      Rep(ind)=[];
-    for i=1:numel(Rep)
-         Rep(i)=FindGridIndex(Rep(i),Grid);
-       gi(i)=Rep(i).GridIndex;
-    end
-    uniq=(unique(gi));
-     while numel(Rep)>RepSize
-        Rep=deleteFromRep(uniq,Rep);
-    end
+%     for i=1:numel(Rep)
+%          Rep(i)=FindGridIndex(Rep(i),Grid);
+%        gi(i)=Rep(i).GridIndex;
+%     end
+%     uniq=(unique(gi));
+%      while numel(Rep)>RepSize
+%         Rep=deleteFromRep(uniq,Rep);
+%     end
     for i=1:length(Rep)
        paretoFront=[paretoFront ;Rep(i).cost];  
     end

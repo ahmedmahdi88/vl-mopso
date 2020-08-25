@@ -6,6 +6,7 @@ f2=figure(2);RelativeGenerationalDistanceVis(Scenario);drawnow
 f3=figure(3);NDS(Scenario);drawnow
 f5=figure(5);ClassesHistogramVis(Scenario);drawnow
 f6=figure(6);ClassesHistogramVisMoPso(Scenario);drawnow
+f9=figure(9);ClassesHistogramVisMoPso2(Scenario);drawnow
 f7=figure(7);ClassesHistogramVisNSGA2(Scenario);drawnow
 % if you need to visualize hyper volume uncomment the following row;
 f4=figure(4);HvVisualizationComp(Scenario);
@@ -15,7 +16,9 @@ saveas(f1,[p '/rosenLevyFigs/setCoverage-rl-scenario' num2str(Scenario) '.png'])
 saveas(f2,[p '/rosenLevyFigs/RGD-rl-scenario' num2str(Scenario) '.png'])
 saveas(f3,[p '/rosenLevyFigs/NDS-rl-scenario' num2str(Scenario) '.png'])
 saveas(f5,[p '/rosenLevyFigs/histogram-vlmopso-rl-scenario' num2str(Scenario) '.png'])
-saveas(f6,[p '/rosenLevyFigs/histogram-mopso-rl-scenario' num2str(Scenario) '.png'])
+saveas(f6,[p '/rosenLevyFigs/histogram-mopsoMut-rl-scenario' num2str(Scenario) '.png'])
+saveas(f9,[p '/rosenLevyFigs/histogram-mopso-rl-scenario' num2str(Scenario) '.png'])
 saveas(f7,[p '/rosenLevyFigs/histogram-nsga2-rl-scenario' num2str(Scenario) '.png'])
 saveas(f8,[p '/rosenLevyFigs/pareto-rl-scenario' num2str(Scenario) '.png'])
 saveas(f4,[p '/rosenLevyFigs/HV-rl-scenario' num2str(Scenario) '.png'])
+clc;disp('save is done');

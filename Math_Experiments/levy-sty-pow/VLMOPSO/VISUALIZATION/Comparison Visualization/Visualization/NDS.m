@@ -23,11 +23,12 @@ AddRequiredPaths;
 % end
     nv=length(paretoFrontvl);
 fl=length(paretoFront);
+ffl=length(paretoFrontwm);
 nsga2=length(pno);
-somedata=[fl,nv,nsga2];
-somenames={'MOPSO','VL-MOPSO','NSGA-II'};
+somedata=[ffl,fl,nv,nsga2];
+somenames={'MOPSO','MOPSO-Mutation','VL-MOPSO','NSGA-II'};
 
-bar(somedata);title('NDS');
+bar(somedata);
 set(gca,'xticklabel',somenames)
 suptitle('NDS')
 % title([ 'popSize=' num2str(resvl.popSize) ' | enhancementTimeout= ' num2str(resvl.enhancement_timeout) ' | nobj= ' num2str(nobjArr(Scenario))]);

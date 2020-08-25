@@ -66,6 +66,7 @@ pop=res.pop;
 % higherLength=res.higherBound_dim;
 cd ..
 cd Results_Math_levy_powell_stybtang_WithoutMutation
+currentFolder = pwd;
 reswm=load([currentFolder '\scenario-'   num2str(Scenario) '\scenario-'   num2str(Scenario) '.mat' '\' 'scenario-'  num2str(Scenario) '.mat']);
 paretoFrontwm=reswm.paretoFront;
 paretoSetwm=reswm.paretoSet;

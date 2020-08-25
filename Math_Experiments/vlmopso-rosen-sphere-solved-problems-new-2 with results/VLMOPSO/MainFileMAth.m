@@ -8,7 +8,7 @@ heigherBound_pos=10;
 lowerBound_dim=1;
 higherBound_dim=30;
 numberOfIter=200;
-RepSize=popSize;
+RepSize=100;
 p_mutation=0.1;
 mutatedRatio=0.5;
 

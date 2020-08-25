@@ -1,6 +1,6 @@
 clear;clc;
 AddRequiredPaths;
-popSize=5;
+popSize=500;
 nobjArr=[2 2 2 3 2 3 2 3 3 2];
 nobjArr=2*ones(1,10);
 nobj=2;
@@ -9,7 +9,7 @@ lowerBound_pos=-5.12;
 heigherBound_pos=5.12;
 lowerBound_dim=1;
 higherBound_dim=30;
-numberOfIter=5;
+numberOfIter=200;
 RepSize=100;
 pMutate=0.1;
 mutationRatio=0.5;

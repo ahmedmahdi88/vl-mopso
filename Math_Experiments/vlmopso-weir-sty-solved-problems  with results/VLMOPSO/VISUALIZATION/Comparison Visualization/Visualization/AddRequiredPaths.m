@@ -1,6 +1,6 @@
 
 % clear;clc;close all;
-% Scenario=10;
+% Scenario=4;
 cd ..;
 cd ..;
 cd ..;
@@ -64,7 +64,15 @@ pop=res.pop;
 % pareto=res.pareto;
 % lowerLength=res.lowerBound_dim;
 % higherLength=res.higherBound_dim;
-
+cd ..
+cd Results_Math_weierstrass_stybtang_WithoutMutation
+currentFolder = pwd;
+reswm=load([currentFolder '\scenario-'   num2str(Scenario) '\scenario-'   num2str(Scenario) '.mat' '\' 'scenario-'  num2str(Scenario) '.mat']);
+paretoFrontwm=reswm.paretoFront;
+paretoSetwm=reswm.paretoSet;
+classeswm=reswm.classes;
+NCwm=reswm.NC;
+popwm=reswm.pop;
 
 cd ..;
 cd ..;

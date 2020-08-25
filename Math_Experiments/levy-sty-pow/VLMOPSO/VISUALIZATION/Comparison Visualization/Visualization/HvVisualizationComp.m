@@ -22,12 +22,12 @@ AddRequiredPaths;
 %     end
 %     end
 
-somedata=[HyperVolume(paretoFront),HyperVolume(paretoFrontvl),HyperVolume(pno)]
-somenames={'MOPSO','VL-MOPSO','NSGA-II'};
+somedata=[HyperVolume(paretoFrontwm),HyperVolume(paretoFront),HyperVolume(paretoFrontvl),HyperVolume(pno)]
+somenames={'MOPSO','MOPSO-Mutation','VL-MOPSO','NSGA-II'};
 
 bar(somedata);title('Hyper Volume');
 set(gca,'xticklabel',somenames)
-suptitle('HV')
+
 
 % title([ 'popSize=' num2str(resvl.popSize) ' | enhancementTimeout= ' num2str(resvl.enhancement_timeout) ' | nobj= ' num2str(nobjArr(Scenario))]);
 
