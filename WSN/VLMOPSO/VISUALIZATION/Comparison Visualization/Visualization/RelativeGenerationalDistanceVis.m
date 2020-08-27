@@ -20,11 +20,10 @@ trueParetoFront=find_opt_objs(Scenario);
 dFl= GenerationalDistance(paretoFront,trueParetoFront,2);
 dVl= GenerationalDistance(paretoFrontvl,trueParetoFront,2);
 dn=  GenerationalDistance(pno,trueParetoFront,2);
-
+% d=   GenerationalDistance(paretoFrontwm,trueParetoFront,2);
 somedata=[dFl dVl dn ];
-somenames={'MOPSO', 'VL-MOPSO','NSGA-II'};
+somenames={'MOPSO' ,'SC-MOPSO','NSGA-II'};
 bar(somedata);set(gca,'xticklabel',somenames)
 suptitle(['Relative Generational Distanse']);
-saveas(gcf,['figures/RGD-Sensors-scenario-' num2str(Scenario) '.png'])
 % title([ 'popSize=' num2str(resvl.popSize) ' | enhancementTimeout= ' num2str(resvl.enhancement_timeout) ' | nobj= ' num2str(nobjArr(Scenario))]);
 

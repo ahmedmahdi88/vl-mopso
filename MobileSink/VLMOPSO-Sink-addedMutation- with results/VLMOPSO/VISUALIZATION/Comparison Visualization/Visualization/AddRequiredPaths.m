@@ -15,6 +15,7 @@ NCvl=resvl.NC;
 
 cd ..
 cd ..
+cd ..
 cd 'mopso-with-addhock-for-variable-length/Results_Sink'
 currentFolder = pwd;
 res=load([currentFolder '\scenario-'   num2str(Scenario) '\scenario-'   num2str(Scenario) '.mat' '\' 'scenario-'  num2str(Scenario) '.mat']);

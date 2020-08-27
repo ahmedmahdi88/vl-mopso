@@ -6,7 +6,7 @@ AddRequiredPaths;
 
 
 somedata=[HyperVolume(paretoFrontwm),HyperVolume(paretoFront),HyperVolume(paretoFrontvl),HyperVolume(pno)]
-somenames={'MOPSO','MOPSO-Mutation','VL-MOPSO','NSGA-II'};
+somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II'};
 bar(somedata);title('Hyper Volume');
 set(gca,'xticklabel',somenames)
 suptitle('HV')

@@ -26,8 +26,8 @@ for ix=1:length(i)
         thisX = r * cos(theta) + i(ix);
         thisY = r * sin(theta) + j(ix);
         hLine5=plot(thisX,thisY,color);hold on;
-        fill(thisX, thisY, color);
+        fill(thisX, thisY, color,'FaceAlpha',0.1,'LineStyle',':');
         hLine1= plot(i(ix),j(ix),'bx');
 end
-legend([hLine1,hLine5],'sensor position','sensor range')
+legend([hLine1,hLine5],'sensor position','sensor range','location','eastoutside','orientation','vertical')
 end

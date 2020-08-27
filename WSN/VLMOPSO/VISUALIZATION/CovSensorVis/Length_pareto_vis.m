@@ -1,4 +1,4 @@
- clear;clc;close all;
+%  clear;clc;close all;
 cd ..
 cd ..
 scenario=1;
@@ -35,5 +35,5 @@ cd ..
 cd ..
 cd 'VISUALIZATION'
 cf=pwd;
-saveas(gcf,[cf '/Comparison Visualization/Visualization/figures/Length-vs-pareto-sensors-NSGA-II.png'])
+saveas(gcf,[cf '/Comparison Visualization/Visualization/images/Length-vs-pareto-sensors-NSGA-II.png'])
     

@@ -25,7 +25,7 @@ c=0;
 cssvl=classes(Count~=0);
 Count(Count==0)=[];
 bar(cssvl,Count);title('NSGA-II');xlabel('classes');ylabel('number of solutions');
-saveas(gcf,['figures/NSGA-II-Sensors-classesHistogram-scenario-' num2str(Scenario) '.png'])
+% saveas(gcf,['figures/NSGA-II-Sensors-classesHistogram-scenario-' num2str(Scenario) '.png'])
 % subplot(1,2,2)
 % classes=classes(Count~=0);
 % Count(Count==0)=[];

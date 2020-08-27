@@ -22,7 +22,7 @@ Count=zeros(1,NC);
 cssvl=classesvl(vlCount~=0);
 vlCount(vlCount==0)=[];
 bar(cssvl,vlCount);title('VL');xlabel('classes');ylabel('number of solutions');
-title('VL-MOPSO')
+title('SC-MOPSO')
 % subplot(1,2,2)
 % classes=classes(Count~=0);
 % Count(Count==0)=[];
