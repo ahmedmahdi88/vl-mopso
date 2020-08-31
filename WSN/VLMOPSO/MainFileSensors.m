@@ -16,7 +16,9 @@ RepSize=popSize;
 nGrid=7;
 alpha=0.1;
 w=0.4;
-for scenario=1:4
+mutProb=0.1;
+mutRatio=0.5;
+for scenario=5:10
 %      nobj=nobjArr(scenario);
    objfun=eval(['@CovCost']);
 rng(scenario);
@@ -24,7 +26,7 @@ rng(scenario);
 % enhancement_timeout=round(unifrnd(20,50));
 % lowerBound_dim=round(unifrnd(1,1));
 % higherBound_dim=round(unifrnd(lowerBound_dim,20));
-[t,population,enhancement_timeout,paretoFront,paretoSet ,NC,classes,v]=RunAlgorithmSensors2(scenario,objfun,popSize,nobj,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,numberOfIter,w,minNumOfParticles);
+[t,population,enhancement_timeout,paretoFront,paretoSet ,NC,classes,v]=RunAlgorithmSensors2(scenario,objfun,popSize,nobj,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,numberOfIter,w,minNumOfParticles,mutProb,mutRatio);
  currentFolder=pwd;
 path2 =[currentFolder '\Results_Sensors_withTime\scenario-' num2str(scenario) '\scenario-' num2str(scenario) '.mat' ];
 if ~exist(path2, 'dir')

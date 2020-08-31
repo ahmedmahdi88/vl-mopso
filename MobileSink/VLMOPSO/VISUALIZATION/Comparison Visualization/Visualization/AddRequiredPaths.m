@@ -1,11 +1,11 @@
 
-clear;clc;close all;
-Scenario=1;
+% clear;clc;close all;
+% Scenario=1;
 cd ..;
 cd ..;
 cd ..;
 nobjArr=2;
-cd 'Results_Sink'
+cd 'Results_Sink2'
 currentFolder = pwd;
 resvl=load([currentFolder '\scenario-'   num2str(Scenario) '\scenario-'   num2str(Scenario) '.mat' '\' 'scenario-'  num2str(Scenario) '.mat']);
 paretoFrontvl=resvl.paretoFront;

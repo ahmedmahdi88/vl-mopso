@@ -1,0 +1,28 @@
+--"AllMeasures-bars"--
+visualizes all measures using bars and save the results as png in 
+"(Experiment Name)/images"
+//////////////////////////////////
+--"mainFileHV"--
+visualizes HV using bars and saves the results as png in
+"(Experiment Name)/images"
+it is seperated because of its computational complexity
+////////////////////////
+--"radarGraph"--
+visualizes radar graph for:
+1-Delta measur (in case of 2-objs)
+2-HV
+3-NDS
+4-IRGD
+ and saves the results in "(Experiment Name)/images"
+////////////////////////
+--"ttestSetCov"--
+visualizes set coverage changings within all 10 scenarios 
+and visualizes the T-Test for vlmopso and the others
+then saves the results in 
+"(Experiment Name)/images"
+///////////////////////////////
+--"boxPlot"--
+generates box plot for each measur within all 10 scenarios 
+then saves the results in 
+"(Experiment Name)/images"
+///////////////////////////

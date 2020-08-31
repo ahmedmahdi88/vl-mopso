@@ -15,21 +15,22 @@ RepSize=popSize;
 %     'sphere_Ackley_Rastrigin', 'Weierstrass_Griewanks'};
 objfunStr='@CovCost';
 objfun=@CovCost;
-nGrid=7;
+nGrid=7;plot(paretoFront(:,1),paretoFront(:,2),'bP');hold on;
 alpha=0.1;
 w=0.4;
-for s=1:10
+mutProb=0.1;
+mutRatio=0.5;
+for s=2:10
 %     nobj=nobjArr(s);
 %     objfun=eval(['@' objfunList{s}]);
 % objfun=eval(objfunStr);
     rng(s);
 %     popSize=round(unifrnd(100,100));
     RepSize=popSize;
-% lowerBound_dim=round(unifrnd(1,1));
-% higherBound_dim=round(unifrnd(lowerBound_dim,20));
-[t,paretoFront,paretoSet ,NC,classes,pop]=RunAlgorithmSensors(s,objfun,popSize,nobj,RepSize,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,nGrid,alpha,numberOfIter,w);
+
+[t,paretoFront,paretoSet ,NC,classes,pop]=RunAlgorithmSensors(s,objfun,popSize,nobj,RepSize,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,nGrid,alpha,numberOfIter,w,mutProb,mutRatio);
  currentFolder=pwd;
-path2 =[currentFolder '\Results_pop100\scenario-' num2str(s) '\scenario-' num2str(s) '.mat' ];
+path2 =[currentFolder '\Results_Sensors_mut\scenario-' num2str(s) '\scenario-' num2str(s) '.mat' ];
 if ~exist(path2, 'dir')
        mkdir(path2)
 end

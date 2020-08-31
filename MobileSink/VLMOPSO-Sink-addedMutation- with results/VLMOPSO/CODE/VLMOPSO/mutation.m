@@ -58,7 +58,7 @@ for s=1:length(sensorPos.x)
             rvp.addedSensors(i).values= [rvp.addedSensors(i).values s];
             rvp.numberOfAddedSensors(i)=rvp.numberOfAddedSensors(i)+1;
             nonCoverdSensors(s)=1;
-            endc
+        end
     end
  end
 end

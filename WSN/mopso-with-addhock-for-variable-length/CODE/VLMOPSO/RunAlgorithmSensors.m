@@ -1,4 +1,4 @@
-function [t,paretoFront,paretoSet ,NC,classes,pop]=RunAlgorithm(s,objfun,popSize,nobj,RepSize,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,nGrid,alpha,numberOfIter,w)
+function [t,paretoFront,paretoSet ,NC,classes,pop]=RunAlgorithm(s,objfun,popSize,nobj,RepSize,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,nGrid,alpha,numberOfIter,w,mutProb,mutRatio)
 tic
 [pop,NC,classes,A,b,a,m]= initializationSensors(popSize,nobj,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim);
 for i=1:popSize
@@ -71,18 +71,19 @@ disp(prog);
 %     fprintf('iter:%d   progress:%d (%) \n',iter,ceil(100-(numberOfIter-iter)/numberOfIter*100));
     for i=1:popSize
     
-%         if b>length(a)
-%             pop(i).pos(end+1:b)=0;
-%              pop(i).vel(end+1:b)=0;
-%               pop(i).pbest(end+1:b)=0;
+
 %         end
         pop(i).vel= w*pop(i).vel+ rand*(pop(i).pbest-pop(i).pos) +rand*(Rep(h).pos-pop(i).pos);
         pop(i).vel(pop(i).Dim+1: end)=0;
         tmp=  pop(i).pos + pop(i).vel;
 %         tmp=pop(i).pos;
         
-        tmp(tmp<lowerBound_pos)=lowerBound_pos;
+        tmp(tmp<lowerBound_pos )=lowerBound_pos;
         tmp(tmp>heigherBound_pos)=heigherBound_pos;
+        tmp(pop(i).Dim+1: end)=0;
+        if rand<mutProb
+        tmp(tmp~=0)=mutationPso(tmp(tmp~=0),mutRatio,lowerBound_pos,heigherBound_pos);
+        end
         tmp=round(tmp);
         tmp(1:pop(i).Dim)=checkBounds( tmp(1:pop(i).Dim));
          tmp(pop(i).Dim+1: end)=0;
@@ -93,12 +94,7 @@ disp(prog);
         end
 
         pop(i).cost=objfun(pop(i).pos,A,b,a,m);
-% pop(i).cost=objfun(pop(i).pos);
-%         objs=[objs;pop(i).cost];
-%         if iter>1
-%         C(i)=setcoverage2(objs(i));
-%         end
-%         if Dominates( pop(i).cost, objfun(pop(i).pbest,A,b,a,m))
+
 if Dominates( pop(i).cost, objfun(pop(i).pbest,A,b,a,m))
             pop(i).pbest= pop(i).pos;
         end

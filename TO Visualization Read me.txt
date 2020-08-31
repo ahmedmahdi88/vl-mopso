@@ -1,9 +1,4 @@
 for mathematical function visualization go to 
 Math experiments --> then
-Go to: VLMOPSO-->VISUALIZATION-->Comparison Visualization-->MainFile or ttestSetCove
+Go to: VLMOPSO-->VISUALIZATION
 *****************************************
-
-for mobile sink visualization go to 
-Mobile sink --> then
-Go to: VLMOPSO-->VISUALIZATION-->Comparison Visualization-->MainFile or ttestSetCove 
-or visualizeSink

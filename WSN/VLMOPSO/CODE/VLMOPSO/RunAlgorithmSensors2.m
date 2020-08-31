@@ -14,7 +14,7 @@
 % higherBound_dim: higher position length
 % numberOfIter: number of iterations
 % w: inertia weight
-function [t,population,enhancement_timeout,paretoFront,paretoSet ,NC, classes,v]=RunAlgorithm(scenario,objfun,popSize,nobj,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,numberOfIter,w,minNumOfParticles)
+function [t,population,enhancement_timeout,paretoFront,paretoSet ,NC, classes,v]=RunAlgorithm(scenario,objfun,popSize,nobj,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim,numberOfIter,w,minNumOfParticles,mutProb,mutRatio)
 % population initialization
 tic
 [pop,NC,classes,A,a,b,m]= initializationSensors(popSize,nobj,lowerBound_pos,heigherBound_pos,lowerBound_dim,higherBound_dim);
@@ -103,6 +103,10 @@ for c=1:NC
         tmpAMC(i).vel= w*tmpAMC(i).vel+ rand*(tmpAMC(i).pbest-tmpAMC(i).pos) +rand*(tmpAMC(h).pos-tmpAMC(i).pos);
        
         tmp=  round(tmpAMC(i).pos + tmpAMC(i).vel); 
+        if rand<mutProb
+        tmp(tmp~=0)=mutationPso(tmp(tmp~=0),mutRatio,lowerBound_pos,heigherBound_pos);
+        end
+        tmp=round(tmp);
        tmp(tmp<lowerBound_pos)=lowerBound_pos;
         tmp(tmp>heigherBound_pos)=heigherBound_pos;
         tmp=checkBounds(tmp);

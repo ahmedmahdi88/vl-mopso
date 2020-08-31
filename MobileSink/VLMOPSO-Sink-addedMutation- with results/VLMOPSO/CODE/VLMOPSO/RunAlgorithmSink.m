@@ -74,12 +74,13 @@ end
 
 % start iterations ..................................................
 % enhancement_timeout=round(unifrnd(20,50));
-enhancement_timeout=3;
+enhancement_timeout=5;
 countIsFixed=0;
 hhhh = waitbar(1,'hello');
 cccc=0;
 countMutRef=0;
 countMut=0;
+f=2;
 for iter=1:numberOfIter
     tic
     clc
@@ -126,8 +127,8 @@ uniq=(unique(gi));
         if(isempty(costs)) % if AMS is empty then continue
             continue;
         end
-        
-        f=round(unifrnd(1,nobj)); % determine random objective
+        f=3-f;
+%         f=round(unifrnd(1,nobj)); % determine random objective
         if all(costs(f,:)==0)     % if all objectives values =0 then the selection
             % probability is the same for all
             pdfpf=ones(size(costs(f,:)))/length(costs(f,:));
@@ -220,7 +221,7 @@ uniq=(unique(gi));
            med)/maxEnhancementTimeOut);
        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         for i=1:length(tmp1)
-            if tmp1(i).cont>enhancement_timeout && length(tmp1)>5 % if the particle isn't improved within...
+            if tmp1(i).cont>5 && length(tmp1)>5 % if the particle isn't improved within...
                 %enhancement_timeout
                 tmp1(i).cont=0;
                 newClassTemp=tmp1(i);
