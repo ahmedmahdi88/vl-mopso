@@ -1,0 +1,19 @@
+// visualization
+--just open mainFileVis and select the problem number then
+ run the code and all figures will be shown and saved automatically in results images folder
+-- all figures have already been saved 
+
+
+// execution
+-- for running the algorithms codes or modifing the parameters go to source codes folder
+-- the results that have already been saved are available in results folder
+
+// docs folder: contains pseudocodes and technical reports
+
+// Note:
+--in 1-rosen-rastrigin and -rosen-sphere experiments, in vlmopso,m-mopso,-mopso the rep size is set to 100 , 
+but in the other experiments it is set to be equal to popSize. 
+so in those 2 experiments the NDS metric is the best in nsga2
+--in WSN there is no repository in vlmopso, so the vlmopso was superior in terms of execution time
+--in mathematical experiments the repSize was not determined in the last iteration in both vlmopso,m-mopso
+but it is determined in mopso

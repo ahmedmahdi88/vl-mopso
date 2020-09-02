@@ -1,4 +1,0 @@
-
-1- Go to /VLMOPSO/---> MainFileMath ---> Run  
-2- Go to /mopso-with-addhock-for-variable-length/ ---> MainFileMath ---> Run 
-3- Go to /NSGA-II - Math/ ---> /NSGA-II - Math-maxLength=20/ ---> MainFileMath ---> Run  

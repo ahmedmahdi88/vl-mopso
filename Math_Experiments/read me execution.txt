@@ -1,3 +1,0 @@
-for each folder 
-
-Go to VLMOPSO then run MainFileMath
