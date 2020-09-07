@@ -36,7 +36,7 @@ saveas(f7,[p '/results images/' folder '/histogram-nsga2-scenario' num2str(Scena
 saveas(f8,[p '/results images/' folder '/pareto-scenario' num2str(Scenario) '.png'])
 saveas(f4,[p '/results images/' folder '/HV-scenario' num2str(Scenario) '.png'])
 if problemNumber==1
-    saveas(f4,[p '/results images/' folder '/Time-scenario' num2str(Scenario) '.png'])
+    saveas(f10,[p '/results images/' folder '/Time-scenario' num2str(Scenario) '.png'])
 end
 %%
 clc;disp('save is done');

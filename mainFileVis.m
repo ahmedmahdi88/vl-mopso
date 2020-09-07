@@ -6,7 +6,7 @@ addpath([currentFolder '/visualization codes/visualization main folder']);
 %% set visalization problem number
 % you just have to select experiment number then run and all things will be
 % done automatically and the figures are saved in results images folder
-problemNumber=10;
+problemNumber=1;
 % problems:
 % 1- WSN
 % 2- rosen-levy
