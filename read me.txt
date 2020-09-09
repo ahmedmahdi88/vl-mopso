@@ -2,6 +2,9 @@
 --just open mainFileVis and select the problem number then
  run the code and all figures will be shown and saved automatically in results images folder
 -- all figures have already been saved 
+-- new: run mainFileVisMathAverage to visualize boxPlot for all mathematical 
+functions in one figure and ttest for each measure, the results will be saved in
+results images/mathAverage
 
 
 // execution

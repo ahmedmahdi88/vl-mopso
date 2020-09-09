@@ -24,9 +24,11 @@ problems={'WSN','rosen-levy','rosen-rastrigin','rosen-sphere',...
     'sty-gri-schwefel'};
 nobjs=[2*ones(1,6) 3*ones(1,4)];
 %% run bar visualization
-AllMeasuresBars;
+% AllMeasuresBars;
 %% run boxPlot visualization
 boxPlotAll;
+%% run boxplot for all mathematical functions
+boxPlotAllInOne;
 %% radarGraph 
 radarGraph;
 %% ttest for set coverage

@@ -1,7 +1,7 @@
 % clear;close all;
 for Scenario=1:10
     AddRequiredPaths;
-   t_MOmut(Scenario) = res.t;;
+   t_MOmut(Scenario) = res.t;
     t_VL(Scenario) = resvl.t;
     t_MO(Scenario) = reswm.t;
     t_N2(Scenario) = n.t;
