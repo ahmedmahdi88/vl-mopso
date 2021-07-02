@@ -1,5 +1,5 @@
 % clear;close all;
-for problemNumber=1:9
+for problemNumber=10:14
 for Scenario=1:10
     AddRequiredPaths;
    pareto=res.paretoFront
@@ -23,7 +23,7 @@ end
 f1=figure;
 boxplot([meanrgd' meanrgdwm'  meanrgdvl'  meanrgdn2' ],'Labels',{...
     'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II'});
-title('Comparison between SC-MOPSO and other algorithms in terms of Delta for mathematical functions')
+title('Comparison between SC-MOPSO and other algorithms in terms of RGD for mathematical functions')
  set(gca,'FontSize',12);
  set(gca,'LineWidth', 2);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
@@ -38,8 +38,8 @@ set(gca,'xticklabel',{[]})
 legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)'},'location','northoutside')
 p=pwd;p(p=='\')='/';
 folder='mathAverage';
-saveas(f1, [p '/results images/' folder '/rgdAverage.png'])
-saveas(f2, [p '/results images/' folder '/rgdAverageTtest.png'])
+% saveas(f1, [p '/results images/' folder '/rgdAverage.png'])
+% saveas(f2, [p '/results images/' folder '/rgdAverageTtest.png'])
 clc;
 % close all;
 disp('save is done');

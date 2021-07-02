@@ -6,6 +6,7 @@
 fl=length(paretoFront);
 ffl=length(paretoFrontwm);
 nsga2=length(pno);
+ws = length(paretoFrontvl);
 somedata=[ffl,fl,nv,nsga2];
 somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II'};
 

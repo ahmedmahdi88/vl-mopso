@@ -1,6 +1,6 @@
 %% initialization and adding paths
 p=pwd;p(p=='\')='/';
-addpath([p '/../source codes']);
+addpath([p '/visualization codes/source codes']);
 %%
 clc;disp('Delta visualization');
 deltaBoxPlot;

@@ -1,5 +1,5 @@
 % clear;close all;
-for problemNumber=1:9
+for problemNumber=10:14
 for Scenario=1:10
     AddRequiredPaths;
     if nobjArr(1)==2
@@ -49,8 +49,8 @@ set(gca,'xticklabel',{[]})
 legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)'},'location','northoutside')
 p=pwd;p(p=='\')='/';
 folder='mathAverage';
-saveas(f1, [p '/results images/' folder '/HvAverage.png'])
-saveas(f2, [p '/results images/' folder '/HvAverageTtest.png'])
+% saveas(f1, [p '/results images/' folder '/HvAverage.png'])
+% saveas(f2, [p '/results images/' folder '/HvAverageTtest.png'])
 clc;
 % close all;
 disp('save is done');

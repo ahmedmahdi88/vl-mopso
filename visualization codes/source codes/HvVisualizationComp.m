@@ -2,8 +2,8 @@
 % Scenario=s;
 % AddRequiredPaths;
 if nobjArr(1)==2
-somedata=[HyperVolume(paretoFrontwm),HyperVolume(paretoFront),HyperVolume(paretoFrontvl),HyperVolume(pno)]
-somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II'};
+somedata=[HyperVolume(paretoFrontwm),HyperVolume(paretoFront),HyperVolume(paretoFrontvl),HyperVolume(pno),HyperVolume(paretoFrontws)]
+somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'};
 bar(somedata);
 set(gca,'xticklabel',somenames)
 suptitle('HV')

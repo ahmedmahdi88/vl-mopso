@@ -20,6 +20,7 @@ for i=1:popSize
     pop(i).pbest=pop(i).pos;
     pop(i).GridIndex=[];
     pop(i).GridSubIndex=[];
+    pop(i).class = posDim;
 end
 numberOfClasses= length(unique(classes));
 classes= unique(classes);

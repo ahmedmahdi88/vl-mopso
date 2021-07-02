@@ -27,3 +27,15 @@ paretoSetwm=reswm.paretoSet;
 classeswm=reswm.classes;
 NCwm=reswm.NC;
 popwm=reswm.pop;
+%% loading NSGA-II results
+resws=load([currentFolder '/results/' problems{problemNumber} '/WS-VLPSO/scenario-'...
+    num2str(Scenario)]);
+sepa = resws.seperatedCosts;
+sepa = DetermineDomination(sepa);
+b = sepa(:,end)==0;
+paretoFrontws = sepa(b,:);
+paretoFrontws = paretoFrontws(:,1:end-1);
+paretoSetws = resws.particle(b);
+classesws = unique([resws.particle.nvar]);%resws.classes;
+NCws=length(classesws);
+popws=resws.particle;

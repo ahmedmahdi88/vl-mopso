@@ -6,6 +6,7 @@ for Scenario=1:10
    v_MOmut(Scenario) = HyperVolume(paretoFront);
     v_VL(Scenario) = HyperVolume(paretoFrontvl);
     v_MO(Scenario) = HyperVolume(paretoFrontwm);
+    v_WS(Scenario) = HyperVolume(paretoFrontws);
     v_N2(Scenario) = HyperVolume(pno);
 end
 else
@@ -16,8 +17,8 @@ else
     v_MO=hvData.v_MO;
 end
 f1=figure('position',get(0, 'Screensize'));
-boxplot([v_MOmut' v_MO'  v_VL'  v_N2' ],'Labels',{...
-    'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II'});
+boxplot([v_MOmut' v_MO'  v_VL'  v_N2' v_WS'],'Labels',{...
+    'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'});
 title('Comparison between SC-MOPSO and other algorithms in terms of HV within 10 Scenarios ')
 p=pwd;p(p=='\')='/';
 F = getframe(f1);
@@ -26,7 +27,7 @@ if problemNumber==1
 else
     folder=['math/' problems{problemNumber}];
 end
-imwrite(F.cdata, [p '/results images/' folder '/HVBoxPlot.png'], 'png')
-close all;
-clc;
-disp('saving is done');
+% imwrite(F.cdata, [p '/results images/' folder '/HVBoxPlot.png'], 'png')
+% close all;
+% clc;
+% disp('saving is done');

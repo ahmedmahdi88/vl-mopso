@@ -1,8 +1,8 @@
 % Run Algorithm
 integerComponents = false(1,numberOfComponents);
-numberOfSolutions = 500;
-numberOfObjectives = 3;
-numberOfIterations = 200;
+numberOfSolutions = 300;
+% numberOfObjectives = 3;
+numberOfIterations = 500;
 
 fraction = 0.5;%2/numberOfComponents;
 crossoverOption = [fraction 1.2];    % Crossover option [fraction,ratio]  "Intermediate crossover"

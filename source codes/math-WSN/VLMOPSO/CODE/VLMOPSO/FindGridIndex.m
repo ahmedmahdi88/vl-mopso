@@ -20,9 +20,12 @@ function particle=FindGridIndex(particle,Grid)
     particle.GridSubIndex=zeros(1,nObj);
     
     for j=1:nObj
-        
+        try
         particle.GridSubIndex(j)=...
             find(particle.cost(j)<Grid(j).UB,1,'first');
+        catch
+            disp('das');
+        end
         
     end
 

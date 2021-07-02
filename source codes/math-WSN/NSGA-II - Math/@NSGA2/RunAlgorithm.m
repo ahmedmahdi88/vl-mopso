@@ -5,7 +5,8 @@ nsga2 = GenerateInitialPopulation(nsga2,lowerDim,higherDim);
 
 % Evaluate initial population
 for i = 1:nsga2.numberOfSolutions
-    nsga2.solutionsObjectiveValues(i,:) = ObjectiveFunction(nsga2.solutions(i,:).pos(1:nsga2.solutions(i,:).dim));
+    nsga2.solutionsObjectiveValues(i,:) = ObjectiveFunction(nsga2.solutions(i,:).pos);
+%     nsga2.solutionsObjectiveValues(i,:) = ObjectiveFunction(nsga2.solutions(i,:).pos(1:nsga2.solutions(i,:).dim));
 end
 
 % Do fast non-dominated sort
@@ -32,7 +33,8 @@ for iter = 1:nsga2.numberOfIterations
     % Evaluate new population
     newSolsObjectiveValues = zeros(nsga2.numberOfSolutions,nsga2.numberOfObjectives);
     for i = 1:nsga2.numberOfSolutions
-        newSolsObjectiveValues(i,:) = ObjectiveFunction(newPopulation(i,:).pos(newPopulation(i,:).dim));
+       newSolsObjectiveValues(i,:) = ObjectiveFunction(newPopulation(i,:).pos);
+%         newSolsObjectiveValues(i,:) = ObjectiveFunction(newPopulation(i,:).pos(1:newPopulation(i,:).dim));
     end
     
     % Combine the new population and old population

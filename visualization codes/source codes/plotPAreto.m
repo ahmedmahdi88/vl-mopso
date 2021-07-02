@@ -19,7 +19,8 @@ title('Pareto Front');
 hold on;
 plot(paretoFrontvl(:,1),paretoFrontvl(:,2),'ro');
 plot(pno(:,1),pno(:,2),'ks')
-legend({'m-MOPSO','MOPSO','SC-MOPSO','NSGA-II'})
+plot(paretoFrontws(:,1),paretoFrontws(:,2),'g^');
+legend({'m-MOPSO','MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'})
 hold off;
 end
     

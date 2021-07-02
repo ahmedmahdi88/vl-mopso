@@ -14,7 +14,7 @@ pop(i).coverage=[];
 % pop(i).pos=[pop(i).pos sensors(s).pos];
 % pop(i).coverage=[ pop(i).coverage sensors(s).coverage];
 % end
- pop(i).pos=[pop(i).pos (zeros(1,higherBound_dim-pop(i).Dim))];
+ pop(i).pos=[pop(i).pos 100*(ones(1,higherBound_dim-pop(i).Dim))];
 % pop(i).pos=rand(1,posDim);
     pop(i).cost=zeros(1,nobj);
      pop(i).vel=zeros(1, higherBound_dim);

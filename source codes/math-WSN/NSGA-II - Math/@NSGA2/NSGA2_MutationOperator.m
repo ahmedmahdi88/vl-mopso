@@ -14,8 +14,9 @@ for i = 1:nsga2.numberOfSolutions
     child = newPopulation(i,:);
     sc = scale-shrink*scale*nsga2.currentIteration/nsga2.numberOfIterations;
     sc = sc*(nsga2.upperBounds-nsga2.lowerBounds);
-    crsFlag = rand(1,child.dim)<fraction;
-    randNum = randn(1,child.dim); % Normaly distribution
+%     crsFlag = rand(1,child.dim)<fraction;
+    crsFlag = rand(1,length(child))<fraction;
+    randNum = randn(1,length(child)); % Normaly distribution
     child.pos(crsFlag) = child.pos(crsFlag)+sc(crsFlag).*randNum(crsFlag);
     
     % Rounding
@@ -23,7 +24,7 @@ for i = 1:nsga2.numberOfSolutions
     
     % Bounding limit
     child.pos = CheckBounds(nsga2,child.pos);
-    
+    child.pos(child.dim+1:end) = 100;
     % Replace
     newPopulation(i,:) = child;
 end
