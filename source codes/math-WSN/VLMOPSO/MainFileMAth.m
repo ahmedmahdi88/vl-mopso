@@ -27,7 +27,7 @@ objFunsStrings = {'MMF14','MMF15','MMF14_a','MMF15_a','MMF15_l','MMF15_a_l',...
     'MMF16_l1','MMF16_l2','MMF16_l3','FonsecaFleming_objfun','TP_ZDT1_objfun',...
     'TP_ZDT2_objfun','TP_ZDT3_objfun','TP_ZDT6_objfun'};
 nobjs = [2 2 2 2 2 3 3 3 3 2*ones(1,6)];
-for of = 1:14
+for of = 11:14
     nobj=nobjs(of);
     objfun= objFuncs{of};
     lowerBound_dim = lowerBound_dims(of);
@@ -35,6 +35,9 @@ for of = 1:14
     if of==10
         lowerBound_pos = -4;
         heigherBound_pos = 4;
+    else
+        lowerBound_pos=0;
+        heigherBound_pos=1;
     end
 for scenario=1:10
 rng(scenario);

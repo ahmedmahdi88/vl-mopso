@@ -18,7 +18,7 @@ if problemNumber==1
 else
     folder=['math/' problems{problemNumber}];
 end
-% imwrite(F.cdata, [p '/results images/' folder '/TimeBoxPlot.png'], 'png')
+imwrite(F.cdata, [p '/results images/' folder '/TimeBoxPlot.png'], 'png')
 clc;
-% close all;
-% disp('save is done');
+close all;
+disp('save is done');

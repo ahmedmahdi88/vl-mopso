@@ -26,5 +26,8 @@ Count=zeros(1,NC);
 cssvl=classesvl(vlCount~=0);
 vlCount(vlCount==0)=[];
 bar(cssvl,vlCount);title('VL');xlabel('classes');ylabel('number of solutions');
+set(gca, 'XTick', cssvl,'fontsize',6)
+set(gca,'xTickLabel',cssvl);
+
 title('SC-MOPSO')
             

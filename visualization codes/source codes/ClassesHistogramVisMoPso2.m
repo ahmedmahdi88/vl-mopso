@@ -37,6 +37,10 @@ end
 cssvl=classes(Count~=0);
 Count(Count==0)=[];
 bar(cssvl,Count);title('mopso');xlabel('classes');ylabel('number of solutions');
+set(gca, 'XTick', cssvl,'fontsize',6)
+
+set(gca,'xTickLabels',cssvl);
+
 title('MOPSO');
             
             

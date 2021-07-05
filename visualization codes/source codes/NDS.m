@@ -7,8 +7,8 @@ fl=length(paretoFront);
 ffl=length(paretoFrontwm);
 nsga2=length(pno);
 ws = length(paretoFrontvl);
-somedata=[ffl,fl,nv,nsga2];
-somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II'};
+somedata=[ffl,fl,nv,nsga2,ws];
+somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'};
 
 bar(somedata);title('NDS');
 set(gca,'xticklabel',somenames)

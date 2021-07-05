@@ -26,4 +26,4 @@ if problemNumber==1
 else
     folder=['math/' problems{problemNumber}];
 end
-% saveas(gcf, [p '/results images/' folder '/SetCoverageBoxPlot.png'], 'png')
+saveas(gcf, [p '/results images/' folder '/SetCoverageBoxPlot.png'], 'png')

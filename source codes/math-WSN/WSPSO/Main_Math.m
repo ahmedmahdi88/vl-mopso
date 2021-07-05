@@ -2,35 +2,49 @@ clc;
 clear;
 close all
 %% input params
-lowerBound_dim = 2;
-higherBound_dim = 20;
-nvar    = higherBound_dim;
+lowerBound_dims=[2*ones(1,9),1,2,2,2,2,1];
+higherBound_dims=[20*ones(1,13),10,10];
+
 lowerBound_pos = 0;
 higherBound_pos = 1;
 
-npop    = 50;
-w       = 1;
+npop    = 300;
+w       = 0.5;
 
-maxit   = 200;
-wdamp   = 0.99;
+maxit   = 500;
+wdamp   = 1;
 c1      = 2;
 c2      = 2;
 xmin(1) = lowerBound_pos;
 xmax(1) = higherBound_pos;
-xmin(2:nvar) = repmat(xmin(1), 1, nvar - 1);
-xmax(2:nvar) = repmat(xmax(1), 1, nvar - 1);
-dx             = xmax - xmin;
-vmax           = 0.05 * dx;
+
 %% problems setting
 addpath([cd '/../VLMOPSO/CODE/new math functions']);
 objFuncs = {@MMF14,@MMF15,@MMF14_a,@MMF15_a,@MMF15_l,@MMF15_a_l,@MMF16_l1,...
-    @MMF16_l2,@MMF16_l3};
+    @MMF16_l2,@MMF16_l3,@FonsecaFleming_objfun,@TP_ZDT1_objfun,@TP_ZDT2_objfun,...
+    @TP_ZDT3_objfun,@TP_ZDT6_objfun};
 objFunsStrings = {'MMF14','MMF15','MMF14_a','MMF15_a','MMF15_l','MMF15_a_l',...
-    'MMF16_l1','MMF16_l2','MMF16_l3'};
-nobjs = [2 2 2 2 2 3 3 3 3];
-for of = 1:9
+    'MMF16_l1','MMF16_l2','MMF16_l3','FonsecaFleming_objfun','TP_ZDT1_objfun',...
+    'TP_ZDT2_objfun','TP_ZDT3_objfun','TP_ZDT6_objfun'};
+nobjs = [2 2 2 2 2 3 3 3 3 2*ones(1,6)];
+for of = 11:14
     nObj=nobjs(of);
     Fitness= objFuncs{of};
+    lowerBound_dim = lowerBound_dims(of);
+    higherBound_dim = higherBound_dims(of);
+    nvar    = higherBound_dim;
+    xmin(2:nvar) = repmat(xmin(1), 1, nvar - 1);
+    xmax(2:nvar) = repmat(xmax(1), 1, nvar - 1);
+    dx             = xmax - xmin;
+    vmax           = 0.1 * dx;
+    
+    lowerBound_pos = 0;
+    higherBound_pos = 1;
+
+    if of==10
+        lowerBound_pos = -4;
+        heigherBound_pos = 4;
+    end
     for scenario=1:10
         tic
         savePath = [cd '/../../../results/' objFunsStrings{of} '/WS-VLPSO/'];
@@ -141,7 +155,7 @@ for of = 1:9
                         particle(i).position(particle(i).nvar+1:particle(i).nvar+abs(dif3))...
                             = xmin(1:1+abs(dif3)-1) + (xmax(1:1+abs(dif3)-1)...
                             - xmin(1:1+abs(dif3)-1)) .* rand(1,abs(dif3));
- 
+                        
                         particle(i).position = particle(i).position(1:particle(i).pnvar);
                         particle(i).nvar     = particle(i).pnvar;
                         particle(i).velocity = Temp1velocity;
@@ -223,11 +237,11 @@ for of = 1:9
         save([savePath '\scenario-' num2str(scenario) ] ,'t','meanfit','particle','gbestcost','seperatedCosts');
     end
 end
-    % figure(1);
-    % plot(gbestcost,'r','LineWidth',2);
-    % hold on
-    % plot(meanfit,'.b','LineWidth',2);
-    % legend('Bests')
-    % xlabel('Iteration')
-    % ylabel('Fitness')
-    % title('WSPSO');
+% figure(1);
+% plot(gbestcost,'r','LineWidth',2);
+% hold on
+% plot(meanfit,'.b','LineWidth',2);
+% legend('Bests')
+% xlabel('Iteration')
+% ylabel('Fitness')
+% title('WSPSO');

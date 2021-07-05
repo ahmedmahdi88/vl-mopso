@@ -1,27 +1,34 @@
 % clear;close all;
-for problemNumber=10:14
+cont = 1;
+for problemNumber=1:14
 for Scenario=1:10
     AddRequiredPaths;
    pareto=res.paretoFront;
    paretovl  = resvl.paretoFront;
     paretowm = reswm.paretoFront;
+    paretows = paretoFrontws;
     pareton2 = n.paretoFront.solutionsObjectiveValues;
-    nds(Scenario)=size(pareto,1);
-    ndsvl(Scenario)=size(paretovl,1);
-    ndswm(Scenario)=size(paretowm,1);
-    ndsn2(Scenario)=size(pareton2,1); 
+    nds=size(pareto,1);
+    ndsvl=size(paretovl,1);
+    ndswm=size(paretowm,1);
+    ndsws=size(paretows,1);
+    ndsn2=size(pareton2,1); 
+
+meannds(cont)=(nds);
+meanndsvl(cont)=(ndsvl);
+meanndswm(cont)=(ndswm);
+meanndsws(cont)=(ndsws);
+meanndsn2(cont)=(ndsn2);
+cont = cont + 1;
 end
-meannds(problemNumber)=mean(nds);
-meanndsvl(problemNumber)=mean(ndsvl);
-meanndswm(problemNumber)=mean(ndswm);
-meanndsn2(problemNumber)=mean(ndsn2);
 end
 [~,pvm]=ttest(meannds,meanndsvl);
 [~,pvwm]=ttest(meanndswm,meanndsvl);
+[~,pvws]=ttest(meanndsws,meanndsvl);
 [~,pvn]=ttest(meanndsn2,meanndsvl);
 f1=figure;
-boxplot([meannds' meanndswm'  meanndsvl'  meanndsn2' ],'Labels',{...
-    'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II'});
+boxplot([meannds' meanndswm'  meanndsvl'  meanndsn2' meanndsws'],'Labels',{...
+    'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'});
 title('Comparison between SC-MOPSO and other algorithms in terms of NDs for mathematical functions')
  set(gca,'FontSize',12);
  set(gca,'LineWidth', 2);
@@ -31,14 +38,15 @@ title('NDS T-Test for all mathematical functions');
 set(gca,'FontSize',16);
  set(gca,'LineWidth', 2);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
-bdata=[pvm;pvwm;pvn];
+bdata=[pvm;pvwm;pvn;pvws];
 coloredBar(bdata);
 set(gca,'xticklabel',{[]})
-legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)'},'location','northoutside')
+legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)',...
+    'ttest(SC-MOPSO,WS-VLPSO)'},'location','northoutside')
 p=pwd;p(p=='\')='/';
-folder='mathAverage';
-% saveas(f1, [p '/results images/' folder '/ndsAverage.png'])
-% saveas(f2, [p '/results images/' folder '/ndsAverageTtest.png'])
+folder='mathAll-Functions';
+saveas(f1, [p '/results images/' folder '/ndsAll.png'])
+saveas(f2, [p '/results images/' folder '/ndsAllTtest.png'])
 clc;
-% close all;
+close all;
 disp('save is done');

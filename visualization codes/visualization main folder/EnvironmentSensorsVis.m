@@ -54,8 +54,10 @@ randPosWs=paretoSetws(randomIndexWs).position;
 indexWs=find(paretoFrontws(:,1)==0,1);
 if isempty(indexWs)
     disp('can not find ws-vlpso coverage objective=1');
+    bol = 0;
 else
 fullCovPosWs=paretoSetws(indexWs).position;
+bol = 1;
 end
 %% environment visualization
 %% full coverage vlmopso
@@ -72,7 +74,7 @@ suptitle('SC-MOPSO');
 visSensors(W,H,randPosvl,'g',1);
 %% full coverage ws-vlpso
 if ~isempty(indexWs)
-f11=figure;
+f44=figure;
 title(['full coverage | cov= ' num2str(1-paretoFrontws(indexWs,1)) ' | sensors= ' num2str(length(fullCovPosws))]);
 suptitle('WS-VLPSO');
 visSensors(W,H,fullCovPosws,'g',1);
@@ -159,20 +161,27 @@ end
 xlabel('non-coverage');ylabel('cost');zlabel('number of sensors');
 title('NSGA-II');
 %% saving
-% folder='WSN';
-% saveas(f1,[p '/results images/' folder '/fullCov-SC-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f2,[p '/results images/' folder '/randCov-SC-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f3,[p '/results images/' folder '/fullCov-m-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f4,[p '/results images/' folder '/randCov-m-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f5,[p '/results images/' folder '/fullCov-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f6,[p '/results images/' folder '/randCov-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f7,[p '/results images/' folder '/fullCov-nsga2-scenario-' num2str(Scenario) '.png']);
-% saveas(f8,[p '/results images/' folder '/randCov-nsga2-scenario-' num2str(Scenario) '.png']);
-% saveas(f9,[p '/results images/' folder '/paretoWithLength-SC-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f10,[p '/results images/' folder '/paretoWithLength-m-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f11,[p '/results images/' folder '/paretoWithLength-MOPSO-scenario-' num2str(Scenario) '.png']);
-% saveas(f12,[p '/results images/' folder '/paretoWithLength-nsga2-scenario-' num2str(Scenario) '.png']);
-% %%
-% clc;
-% disp('save is done');
-% %% the end
+folder='WSN';
+saveas(f1,[p '/results images/' folder '/fullCov-SC-MOPSO-scenario-' num2str(Scenario) '.png']);
+if bol
+saveas(f44,[p '/results images/' folder '/fullCov-WS-VLPSO-scenario-' num2str(Scenario) '.png']);
+end
+saveas(f2,[p '/results images/' folder '/randCov-SC-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f22,[p '/results images/' folder '/randCov-WS-VLPSO-scenario-' num2str(Scenario) '.png']);
+
+saveas(f3,[p '/results images/' folder '/fullCov-m-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f4,[p '/results images/' folder '/randCov-m-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f5,[p '/results images/' folder '/fullCov-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f6,[p '/results images/' folder '/randCov-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f7,[p '/results images/' folder '/fullCov-nsga2-scenario-' num2str(Scenario) '.png']);
+saveas(f8,[p '/results images/' folder '/randCov-nsga2-scenario-' num2str(Scenario) '.png']);
+saveas(f9,[p '/results images/' folder '/paretoWithLength-SC-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f33,[p '/results images/' folder '/paretoWithLength-WS-VLPSO-scenario-' num2str(Scenario) '.png']);
+
+saveas(f10,[p '/results images/' folder '/paretoWithLength-m-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f11,[p '/results images/' folder '/paretoWithLength-MOPSO-scenario-' num2str(Scenario) '.png']);
+saveas(f12,[p '/results images/' folder '/paretoWithLength-nsga2-scenario-' num2str(Scenario) '.png']);
+%%
+clc;
+disp('save is done');
+%% the end

@@ -18,6 +18,6 @@ if problemNumber==1
 else
     folder=['math/' problems{problemNumber}];
 end
-% imwrite(F.cdata, [p '/results images/' folder '/DeltaBoxPlot.png'], 'png')
-% clc;
-% disp('saving is done');
+imwrite(F.cdata, [p '/results images/' folder '/DeltaBoxPlot.png'], 'png')
+clc;
+disp('saving is done');

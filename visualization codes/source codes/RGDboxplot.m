@@ -22,4 +22,4 @@ if problemNumber==1
 else
     folder=['math/' problems{problemNumber}];
 end
-% imwrite(F.cdata, [p '/results images/' folder '/RGDBoxPlot.png'], 'png')
+imwrite(F.cdata, [p '/results images/' folder '/RGDBoxPlot.png'], 'png')
