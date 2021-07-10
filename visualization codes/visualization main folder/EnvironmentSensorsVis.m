@@ -66,30 +66,45 @@ f1=figure;
 title(['full coverage | cov= ' num2str(1-paretoFrontvl(index,1)) ' | sensors= ' num2str(length(fullCovPosvl))]);
 suptitle('SC-MOPSO');
 visSensors(W,H,fullCovPosvl,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 %%  random vlmopso
 f2=figure;
 title(['random coverage | cov= ' num2str(1-paretoFrontvl(randomIndex,1)) ' | sensors= ' num2str(length(randPosvl))]);
 suptitle('SC-MOPSO');
 visSensors(W,H,randPosvl,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 %% full coverage ws-vlpso
 if ~isempty(indexWs)
 f44=figure;
 title(['full coverage | cov= ' num2str(1-paretoFrontws(indexWs,1)) ' | sensors= ' num2str(length(fullCovPosws))]);
 suptitle('WS-VLPSO');
 visSensors(W,H,fullCovPosws,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 %%  random WS-VLPSO
 f22=figure;
 title(['random coverage | cov= ' num2str(1-paretoFrontws(randomIndexWs,1)) ' | sensors= ' num2str(length(randPosWs))]);
 suptitle('WS-VLPSO');
 visSensors(W,H,randPosWs,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 %% full coverage m-mopso
 if ~isempty(indexMM)
 f3=figure;
 title(['full coverage | cov= ' num2str(1-paretoFront(indexMM,1)) ' | sensors= ' num2str(length(fullCovPosMM(fullCovPosMM~=0)))]);
 suptitle('m-MOPSO');
 visSensors(W,H,fullCovPosMM(fullCovPosMM~=0),'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end 
 %%  random m-mopso
 f4=figure;
@@ -97,6 +112,9 @@ randPosMM=randPosMM(randPosMM~=0);
 title(['random coverage | cov= ' num2str(1-paretoFront(randomIndexMM,1)) ' | sensors= ' num2str(length(randPosMM))]);
 suptitle('m-MOPSO');
 visSensors(W,H,randPosMM,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 %% full coverage mopso
 if ~isempty(indexWM)
 f5=figure;
@@ -104,6 +122,9 @@ fullCovPosWM=fullCovPosWM(fullCovPosWM~=0);
 title(['full coverage | cov= ' num2str(1-paretoFrontwm(indexWM,1)) ' | sensors= ' num2str(length(fullCovPosWM))]);
 suptitle('MOPSO');
 visSensors(W,H,fullCovPosWM,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end 
 %%  random mopso
 f6=figure;
@@ -111,6 +132,9 @@ randPosWM=randPosWM(randPosWM~=0);
 title(['random coverage | cov= ' num2str(1-paretoFrontwm(randomIndexWM,1)) ' | sensors= ' num2str(length(randPosWM))]);
 suptitle('MOPSO');
 visSensors(W,H,randPosWM,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 %% full coverage NSGA-II
 if ~isempty(indexN)
 f7=figure;
@@ -118,6 +142,9 @@ fullCovPosN=fullCovPosN(fullCovPosN~=0);
 title(['full coverage | cov= ' num2str(1-pno(indexN,1)) ' | sensors= ' num2str(pns(indexN).dim)]);
 suptitle('NSGA-II');
 visSensors(W,H,fullCovPosN,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end 
 %%  random NSGA-II
 f8=figure;
@@ -125,10 +152,16 @@ randPosN=randPosN(randPosN~=0);
 title(['random coverage | cov= ' num2str(1-pno(randomIndexN,1)) ' | sensors= ' num2str(pns(randomIndexN).dim)]);
 suptitle('NSGA-II');
 visSensors(W,H,randPosN,'g',1);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 %% visulaize vlmopso pareto with length
 f9=figure;title({'SC-MOPSO','paretoFront with solution length'});
 for i=1:numel(paretoSetvl)
     plot3(paretoFrontvl(i,1),paretoFrontvl(i,2),length(paretoSetvl{1,i}),'b*');hold on;
+    set(gcf,'units','normalized','outerposition',[0 0 1 1])
+    set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 xlabel('non-coverage');ylabel('cost');zlabel('number of sensors');
 title('SC-MOPSO');
@@ -136,6 +169,8 @@ title('SC-MOPSO');
 f10=figure;title({'m-MOPSO','paretoFront with solution length'});
 for i=1:size(paretoSet,1)
     plot3(paretoFront(i,1),paretoFront(i,2),length(paretoSet(i,(paretoSet(i,:)~=0))),'b*');hold on;
+    set(gcf,'units','normalized','outerposition',[0 0 1 1])
+    set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 end
 xlabel('non-coverage');ylabel('cost');zlabel('number of sensors');
 title('m-MOPSO');
@@ -143,6 +178,9 @@ title('m-MOPSO');
 f33=figure;title({'WS-VLPSO','paretoFront with solution length'});
 for i=1:size(paretoSetws,1)
     plot3(paretoFrontws(i,1),paretoFrontws(i,2),length(paretoSetws(i).position),'b*');hold on;
+    set(gcf,'units','normalized','outerposition',[0 0 1 1])
+    set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 xlabel('non-coverage');ylabel('cost');zlabel('number of sensors');
 title('WS-VLPSO');
@@ -150,6 +188,9 @@ title('WS-VLPSO');
 f11=figure;title({'MOPSO','paretoFront with solution length'});
 for i=1:size(paretoSetwm,1)
     plot3(paretoFrontwm(i,1),paretoFrontwm(i,2),length(paretoSetwm(i,(paretoSetwm(i,:)~=0))),'b*');hold on;
+    set(gcf,'units','normalized','outerposition',[0 0 1 1])
+    set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 xlabel('non-coverage');ylabel('cost');zlabel('number of sensors');
 title('MOPSO');
@@ -157,6 +198,9 @@ title('MOPSO');
 f12=figure;title({'NSGA-II','paretoFront with solution length'});
 for i=1:size(pns,1)
     plot3(pno(i,1),pno(i,2),pns(i).dim,'b*');hold on;
+    set(gcf,'units','normalized','outerposition',[0 0 1 1])
+    set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 xlabel('non-coverage');ylabel('cost');zlabel('number of sensors');
 title('NSGA-II');

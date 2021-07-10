@@ -7,6 +7,9 @@ somedata=[C_MOmut_VL C_VL_MOmut  ];
 somenames={'c(m-MOPSO,SC-MOPSO)', 'c(SC-MOPSO,m-MOPSO)'};
 subplot(4,1,1)
 bar(somedata);set(gca,'xticklabel',somenames)
+set(gcf,'color','w');
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 
 C_N2_VL = SetCoverage2(pno,paretoFrontvl);
 C_VL_N2 = SetCoverage2(paretoFrontvl,pno);
@@ -14,6 +17,9 @@ somedata=[C_N2_VL C_VL_N2  ];
 somenames={'c(NSGA-II,SC-MOPSO)', 'c(SC-MOPSO,NSGA-II)'};
 subplot(4,1,3)
 bar(somedata);set(gca,'xticklabel',somenames)
+set(gcf,'color','w');
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 
 C_MO_VL = SetCoverage2(paretoFrontwm,paretoFrontvl);
 C_VL_MO = SetCoverage2(paretoFrontvl,paretoFrontwm);
@@ -21,6 +27,9 @@ somedata=[C_MO_VL C_VL_MO  ];
 somenames={'c(MOPSO,SC-MOPSO)', 'c(SC-MOPSO,MOPSO)'};
 subplot(4,1,2)
 bar(somedata);set(gca,'xticklabel',somenames)
+set(gcf,'color','w');
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 
 C_WS_VL = SetCoverage2(paretoFrontws,paretoFrontvl);
 C_VL_WS = SetCoverage2(paretoFrontvl,paretoFrontws);
@@ -28,6 +37,9 @@ somedata=[ C_WS_VL C_VL_WS ];
 somenames={'c(WS-VLPSO,SC-MOPSO)', 'c(SC-MOPSO,WS-VLPSO)'};
 subplot(4,1,4)
 bar(somedata);set(gca,'xticklabel',somenames)
+set(gcf,'color','w');
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 
 suptitle('set coverage' );
 %%%%
@@ -82,13 +94,15 @@ textColors = repmat(mat(:) > midValue,1,3);  %# Choose white or black for the
                                              %#   they can be easily seen over
                                              %#   the background color
 set(hStrings,{'Color'},num2cell(textColors,2));  %# Change the text colors
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
  
 set(gca,'XTick',1:5,...                         %# Change the axes tick marks
         'XTickLabel',{'SC-MOPSO','m-MOPSO','MOPSO','NSGA-II','WS-VLPSO'},...  %#   and tick labels
         'YTick',1:5,...
         'YTickLabel',{'SC-MOPSO','m-MOPSO','MOPSO','NSGA-II','WS-VLPSO'},...
         'TickLength',[0 0]);
-suptitle('SetCoverage Confusion Matrix for all mathematical functions');
+suptitle('SetCoverage Confusion Matrix');
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
 
 % end

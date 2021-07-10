@@ -136,13 +136,14 @@ if nobjs(problemNumber)==2
     [rgd(5) hv(5) nds(5) delta(5)]];
 axes={'IRGD','HV','NDS','IDelta'};
 else
-P=[[rgd(1) hv(1) nds(1) ] ; [rgd(2) hv(2) nds(2) ]; 
-    [rgd(3) hv(3) nds(3) ] ; [rgd(4) hv(4) nds(4)]; [rgd(5) hv(5) nds(5) ]];
+P=[ [rgd(3) hv(3) nds(3) ] ;[rgd(1) hv(1) nds(1) ] ; [rgd(2) hv(2) nds(2) ]; 
+    [rgd(4) hv(4) nds(4)]; [rgd(5) hv(5) nds(5) ]];
 axes={'IRGD','HV','NDS'};
 end
 titl='mean of measures within 10 Scenarios';
 
-frg=styledRadar(P,{'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'},axes,titl,'on')
+frg=styledRadar(P,{'SC-MOPSO','MOPSO','m-MOPSO','NSGA-II','WS-VLPSO'},axes,titl,'on')
+set(gcf,'color','w');
 %% saving
 if problemNumber==1
     folder='WSN';

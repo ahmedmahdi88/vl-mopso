@@ -17,20 +17,59 @@ end
 %% visualizing the set coverage changing
 f1=figure;
 plot(C_VL_MOmut,'linewidth',2);xlabel('scenario');ylabel('setCoverage');
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'color','w');
+
 hold on; 
 plot(C_MOmut_VL,'linewidth',2);legend({'C(SC-MOPSO,m-MOPSO)','C(m-MOPSO,SC-MOPSO)'});
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'color','w');
+
 f2=figure;
 plot(C_VL_N2,'linewidth',2);xlabel('scenario');ylabel('setCoverage');
+set(gcf,'color','w');
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 hold on; 
 plot(C_N2_VL,'linewidth',2);legend({'C(SC-MOPSO,NSGA-II)','C(NSGA-II,SC-MOPSO)'});
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'color','w');
+
 f3=figure;
 plot(C_VL_MO,'linewidth',2);xlabel('scenario');ylabel('setCoverage');
+set(gcf,'color','w');
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 hold on; 
 plot(C_MO_VL,'linewidth',2);legend({'C(SC-MOPSO,MOPSO)','C(MOPSO,SC-MOPSO)'});
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 f4=figure;
 plot(C_VL_ws,'linewidth',2);xlabel('scenario');ylabel('setCoverage');
+set(gcf,'color','w');
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 hold on; 
 plot(C_ws_VL,'linewidth',2);legend({'C(SC-MOPSO,WS-VLPSO)','C(WS-VLPSO,SC-MOPSO)'});
+set(gcf,'color','w');
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 %% copute T-Test values
 [~,pvm]=ttest(C_VL_MOmut,C_MOmut_VL);
 [~,pvwm]=ttest(C_VL_MO,C_MO_VL);
@@ -44,6 +83,10 @@ somenames={'ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,m-MOPSO)', 'ttest(SC-MOPSO,NS
 f5=figure;
 bar(somedata);set(gca,'xticklabel',somenames,'fontsize',6);
 title(['T-Test ']);
+set(gcf,'color','w');
+set(gca,'XTickLabelRotation', 45);
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 %% saving
 if problemNumber==1
     folder='WSN';

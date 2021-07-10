@@ -47,4 +47,6 @@ for ix=1:length(i)
         thisX = r * cos(theta) + i(ix);
         thisY = r * sin(theta) + j(ix);
         plot(thisX,thisY,'g');hold on;
+        set(gcf,'units','normalized','outerposition',[0 0 1 1])
+        set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 end

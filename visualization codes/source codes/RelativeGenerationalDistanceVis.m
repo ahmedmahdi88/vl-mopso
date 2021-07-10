@@ -22,9 +22,12 @@ dVl= GenerationalDistance(paretoFrontvl,trueParetoFront,2);
 dn=  GenerationalDistance(pno,trueParetoFront,2);
 d=   GenerationalDistance(paretoFrontwm,trueParetoFront,2);
 dw = GenerationalDistance(paretoFrontws,trueParetoFront,2);
-somedata=[d dFl dVl dn dw];
-somenames={'MOPSO','m-MOPSO' ,'SC-MOPSO','NSGA-II','WS-VLPSO'};
+somedata=[dVl d dFl  dn dw];
+somenames={'SC-MOPSO','MOPSO','m-MOPSO' ,'NSGA-II','WS-VLPSO'};
 bar(somedata);set(gca,'xticklabel',somenames)
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 title(['Relative Generational Distanse']);
 % title([ 'popSize=' num2str(resvl.popSize) ' | enhancementTimeout= ' num2str(resvl.enhancement_timeout) ' | nobj= ' num2str(nobjArr(Scenario))]);
 

@@ -17,7 +17,8 @@ cssvl=classes(Count~=0);
 Count(Count==0)=[];
 bar(cssvl,Count);title('nsga2');xlabel('classes');ylabel('number of solutions');
 set(gca, 'XTick', cssvl,'fontsize',6)
-
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 set(gca,'xTickLabels',cssvl);
 
 title('NSGA-II');

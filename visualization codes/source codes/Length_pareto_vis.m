@@ -18,6 +18,8 @@ paretoFront=n.paretoFront.solutionsObjectiveValues;
 if (size(paretoFront,2))==2
 for i=1:numel(paretoSet)
     plot3(paretoFront(i,1),paretoFront(i,2),paretoSet(i).dim,'b*');hold on;
+    set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 end
 
 else

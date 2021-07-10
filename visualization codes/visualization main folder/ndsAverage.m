@@ -27,20 +27,38 @@ end
 [~,pvws]=ttest(meanndsws,meanndsvl);
 [~,pvn]=ttest(meanndsn2,meanndsvl);
 f1=figure;
-boxplot([meannds' meanndswm'  meanndsvl'  meanndsn2' meanndsws'],'Labels',{...
-    'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'});
+h=boxplot([meanndsvl' meannds' meanndswm'  meanndsn2' meanndsws'],'Labels',{...
+    'SC-MOPSO','m-MOPSO','MOPSO','NSGA-II','WS-VLPSO'});
 title('Comparison between SC-MOPSO and other algorithms in terms of NDs for mathematical functions')
- set(gca,'FontSize',12);
- set(gca,'LineWidth', 2);
+set(gcf,'color','w');
+set(gca,'FontSize',12);
+set(h,'LineWidth', 2);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+%% save xlsx
+SC_MOPSO = meanndsvl';
+m_MOPSO = meannds';
+MOPSO = meanndswm';
+NSGA_II = meanndsn2';
+WS_VLPSO = meanndsws'; 
+T=table (SC_MOPSO,m_MOPSO,MOPSO,NSGA_II,WS_VLPSO);
+filename=[cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of NDS for all mathematical functions.xlsx'];
+writetable(T,filename,'Sheet',1)
+%%
 f2=figure;
 title('NDS T-Test for all mathematical functions');
+set(gcf,'color','w');
 set(gca,'FontSize',16);
- set(gca,'LineWidth', 2);
+set(gca,'LineWidth', 2);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 bdata=[pvm;pvwm;pvn;pvws];
 coloredBar(bdata);
+set(gcf,'color','w');
 set(gca,'xticklabel',{[]})
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
+
 legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)',...
     'ttest(SC-MOPSO,WS-VLPSO)'},'location','northoutside')
 p=pwd;p(p=='\')='/';

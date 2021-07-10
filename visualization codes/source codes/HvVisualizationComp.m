@@ -2,10 +2,12 @@
 % Scenario=s;
 % AddRequiredPaths;
 if nobjArr(1)==2
-somedata=[HyperVolume(paretoFrontwm),HyperVolume(paretoFront),HyperVolume(paretoFrontvl),HyperVolume(pno),HyperVolume(paretoFrontws)]
-somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'};
+somedata=[HyperVolume(paretoFrontvl),HyperVolume(paretoFrontwm),HyperVolume(paretoFront),HyperVolume(pno),HyperVolume(paretoFrontws)]
+somenames={'SC-MOPSO','MOPSO','m-MOPSO','NSGA-II','WS-VLPSO'};
 bar(somedata);
 set(gca,'xticklabel',somenames)
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 suptitle('HV')
 else
    tmp = [paretoFront(:,1),paretoFront(:,2)];
@@ -47,18 +49,14 @@ else
         tmp = [pno(:,2),pno(:,3)];
         hv3 = HyperVolume(tmp);
         hvn2 = mean([hv1 hv2 hv3]); 
-somedata=[hvwm,hv,hvvl,hvn2,hvws]
-somenames={'MOPSO','m-MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'};
+somedata=[hvvl,hvwm,hv,hvn2,hvws];
+somenames={'SC-MOPSO','MOPSO','m-MOPSO','NSGA-II','WS-VLPSO'};
 bar(somedata);
+set(gcf,'color','w');
+set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 set(gca,'xticklabel',somenames)
 title('HV')
 end
     
 % end
-
-
-
-
-
-
-

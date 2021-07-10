@@ -3,9 +3,9 @@ p=pwd;p(p=='\')='/';
 addpath([p '/visualization codes/source codes']);
 %%
 clc;disp('Delta visualization');
-if nobjs(problemNumber)==2
+% if nobjs(problemNumber)==2
 deltaBoxPlot;
-end
+% end
 %%
 clc;disp('set coverage visualization');
 setCovBoxPlot;

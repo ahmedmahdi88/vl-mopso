@@ -71,19 +71,33 @@ end
 [~,pvws]=ttest(meanhvws,meanhvvl);
 [~,pvn]=ttest(meanhvn2,meanhvvl);
 f1=figure;
-boxplot([meanhv' meanhvwm'  meanhvvl'  meanhvn2' meanhvws'],'Labels',{...
-    'm-MOPSO','MOPSO','SC-MOPSO','NSGA-II','WS-VLPSO'});
+h=boxplot([meanhvvl' meanhv' meanhvwm' meanhvn2' meanhvws'],'Labels',{...
+    'SC-MOPSO','m-MOPSO','MOPSO','NSGA-II','WS-VLPSO'});
 title('Comparison between SC-MOPSO and other algorithms in terms of HV for mathematical functions')
- set(gca,'FontSize',12);
- set(gca,'LineWidth', 2);
+set(gcf,'color','w');
+set(gca,'FontSize',12);
+set(h,'LineWidth', 2);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',13,'LineWidth',2) 
+%% save xlsx
+SC_MOPSO = meanhvvl';
+m_MOPSO = meanhv';
+MOPSO =  meanhvwm';
+NSGA_II = meanhvn2';
+WS_VLPSO = meanhvws'; 
+T=table (SC_MOPSO,m_MOPSO,MOPSO,NSGA_II,WS_VLPSO);
+filename=[cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of HV for all mathematical functions.xlsx'];
+writetable(T,filename,'Sheet',1)
+%%
 f2=figure;
 title('HV T-Test for all mathematical functions');
+set(gcf,'color','w');
 set(gca,'FontSize',16);
- set(gca,'LineWidth', 2);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
+set(gca,'FontWeight','bold','FontSize',13,'LineWidth',2) 
 bdata=[pvm;pvwm;pvn;pvws];
 coloredBar(bdata);
+set(gcf,'color','w');
 set(gca,'xticklabel',{[]})
 legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)',...
    'ttest(SC-MOPSO,WS-VLPSO)'},'location','northoutside')

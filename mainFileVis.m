@@ -22,10 +22,11 @@ addpath([currentFolder '/visualization codes/visualization main folder']);
 % 13- TP_ZDT2_objfun
 % 14- TP_ZDT3_objfun
 % 15- TP_ZDT6_objfun
-problemNumber=1; 
+problemNumber = 1; 
 problems={'WSN','MMF14','MMF15','MMF14_a','MMF15_a','MMF15_l','MMF15_a_l',...
     'MMF16_l1','MMF16_l2','MMF16_l3','FonsecaFleming_objfun','TP_ZDT1_objfun',...
     'TP_ZDT2_objfun','TP_ZDT3_objfun','TP_ZDT6_objfun'};
+
 for problemNumber = [1:15]
 nobjs=[2*ones(1,6) 3*ones(1,4) 2*ones(1,5)];
 %% run bar visualization 
@@ -36,9 +37,10 @@ boxPlotAll;
 radarGraph;
 %% ttest for set coverage
 ttestSetCov
-end
+
 %% sensors environment visualization
 if problemNumber==1
     EnvironmentSensorsVis;
+end
 end
 %% the end
