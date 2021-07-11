@@ -39,6 +39,8 @@ set(gca,'XTickLabelRotation', 45);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
 set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 ylim([0 1])
+title('C(SC-MOPSO,NSGA-II)');
+xlabel('Length');
 
 subplot(1,2,2)
 for i =  1:numel(C_N2_VL)
@@ -60,6 +62,8 @@ set(gca,'XTickLabelRotation', 45);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
 set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 ylim([0 1])
+title('C(NSGA-II,SC-MOPSO)');
+xlabel('Length');
 
 suptitle('Histogram of SetCoverage Respect To Each Class For Fonseca & ZDT Functions');
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
