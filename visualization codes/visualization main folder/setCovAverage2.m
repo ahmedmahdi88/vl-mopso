@@ -1,6 +1,6 @@
 % clear;close all;
 cont = 1;
-for problemNumber=1:9
+for problemNumber=10:14
 for Scenario=1:10
     AddRequiredPaths;
     C_VL_MOmut = SetCoverage2(paretoFrontvl,paretoFront);
@@ -55,7 +55,7 @@ SC_MOPSO__WS_VLPSO = C_VL_WS';
 WS_VLPSO__SC_MOPSO = C_WS_VL';
 T=[SC_MOPSO__m_MOPSO, m_MOPSO__SC_MOPSO, SC_MOPSO__MOPSO,...
     MOPSO__SC_MOPSO ,SC_MOPSO__NSGA_II, NSGA_II__SC_MOPSO ,SC_MOPSO__WS_VLPSO,WS_VLPSO__SC_MOPSO];
-baseFileName = 'Comparison between SC-MOPSO and other algorithms in terms of C Metric for CEC2020 functions.xlsx';
+baseFileName = 'Comparison between SC-MOPSO and other algorithms in terms of C Metric for Fonseca & ZDT functions.xlsx';
 fold=[cd '/tables'];
 fullFileName = fullfile(fold, baseFileName);
  tt={'C(SC-MOPSO,m-MOPSO)'...
@@ -241,19 +241,19 @@ h = findobj('tag','Box');
     for k=1:n
     set(h(k),'linewidth',2);
     end
+
+
 % subplot(5,5,25)
-suptitle('SetCoverage Confusion Matrix for CEC2020 functions');
+suptitle('SetCoverage Confusion Matrix for Fonseca & ZDT functions');
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
 set(gcf,'color','w');
-
-
 
 f1=figure;
 h=boxplot([meanC_VL_MOmut' meanMOmut_VL'  meanC_VL_MO'  meanC_MO_VL'   meanC_VL_N2' meanC_N2_VL' meanC_VL_WS' meanC_WS_VL'],'Labels',{'C(SC-MOPSO,m-MOPSO)'...
     ,'C(m-MOPSO,SC-MOPSO)','C(SC-MOPSO,MOPSO)','C(MOPSO,SC-MOPSO)',...
     'C(SC-MOPSO,NSGA-II)','C(NSGA-II,SC-MOPSO)','C(SC-MOPSO,WS-VLPSO)','C(WS-VLPSO,SC-MOPSO)'});
 set(gca,'XTickLabelRotation', 45);
-title('Comparison between SC-MOPSO and other algorithms in terms of SetCoverage for all mathematical functions')
+title('Comparison between SC-MOPSO and other algorithms in terms of SetCoverage for Fonseca & ZDT functions')
 set(gcf,'color','w');
 set(gca,'FontSize',6);
 set(h,'LineWidth', 2);
@@ -261,7 +261,7 @@ set(gcf,'units','normalized','outerposition',[0 0 1 1])
 set(gca,'FontWeight','bold','FontSize',12,'LineWidth',2) 
 
 f2=figure;
-title('SetCov T-Test for CEC2020 functions');
+title('SetCov T-Test for Fonseca & ZDT functions');
 set(gcf,'color','w');
 set(gca,'FontSize',16);
 set(gca,'LineWidth', 2);
@@ -275,9 +275,9 @@ set(gca,'xticklabel',{[]})
 legend({'ttest(SC-MOPSO,m-MOPSO)','ttest(SC-MOPSO,MOPSO)','ttest(SC-MOPSO,NSGA-II)','ttest(SC-MOPSO,WS-VLPSO)'},'location','northoutside')
 p=pwd;p(p=='\')='/';
 folder='mathAll-Functions';
-saveas(f1, [p '/results images/' folder '/setCovAll.png'])
-saveas(f2, [p '/results images/' folder '/setCovAllTtest.png'])
-saveas(f11, [p '/results images/' folder '/setCovAllConfMat.png'])
+saveas(f1, [p '/results images/' folder '/setCovAll2.png'])
+saveas(f2, [p '/results images/' folder '/setCovAllTtest2.png'])
+saveas(f11, [p '/results images/' folder '/setCovAllConfMat2.png'])
 
 %% 
 clc;

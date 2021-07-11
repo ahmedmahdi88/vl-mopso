@@ -15,12 +15,19 @@ problems = {'MMF14','MMF15','MMF14_a','MMF15_a','MMF15_l','MMF15_a_l',...
 nobjs=[2*ones(1,5) 3*ones(1,4) ,2*ones(1,5)];
 %% delta
 deltaAverage;
+deltaAverage2;
 %% nds
 ndsAverage;
+ndsAverage2;
 %% HV
 hvAverage;
+hvAverage2;
 %% RGD
 rgdAverage;
+rgdAverage2;
 %% setCoverage
 setCovAverage;
+setCovAverage2;
+setCovAverage3;
+setCovAverage4;
 %% the end

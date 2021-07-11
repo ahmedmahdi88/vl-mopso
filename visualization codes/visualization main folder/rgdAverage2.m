@@ -1,6 +1,6 @@
 % clear;close all;
 cont = 1;
-for problemNumber=1:9
+for problemNumber=10:14
 for Scenario=1:10
     AddRequiredPaths;
    pareto=res.paretoFront
@@ -29,7 +29,7 @@ end
 f1=figure;
 h=boxplot([meanrgdvl' meanrgd' meanrgdwm'  meanrgdn2' meanrgdws'],'Labels',{...
   'SC-MOPSO', 'm-MOPSO','MOPSO','NSGA-II','WS-VLPSO'});
-title('Comparison between SC-MOPSO and other algorithms in terms of RGD for CEC2020 functions')
+title('Comparison between SC-MOPSO and other algorithms in terms of RGD for Fonseca & ZDT functions')
 set(gcf,'color','w');
 set(gca,'FontSize',12);
 set(h,'LineWidth', 2);
@@ -42,11 +42,11 @@ MOPSO =  meanrgdwm';
 NSGA_II = meanrgdn2';
 WS_VLPSO = meanrgdws'; 
 T=table (SC_MOPSO,m_MOPSO,MOPSO,NSGA_II,WS_VLPSO);
-filename=[cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of RGD for CEC2020 functions.xlsx'];
+filename=[cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of RGD for Fonseca & ZDT functions.xlsx'];
 writetable(T,filename,'Sheet',1)
 %%
 f2=figure;
-title('RGD T-Test for CEC2020 functions');
+title('RGD T-Test for Fonseca & ZDT functions');
 set(gcf,'color','w');
 set(gca,'FontSize',16);
 set(gca,'LineWidth', 2);

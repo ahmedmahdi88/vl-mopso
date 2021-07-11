@@ -1,6 +1,6 @@
 % clear;close all;
 cont = 1;
-for problemNumber=1:9
+for problemNumber=10:14
 for Scenario=1:10
     AddRequiredPaths;
    
@@ -73,7 +73,7 @@ end
 f1=figure;
 h=boxplot([meanhvvl' meanhv' meanhvwm' meanhvn2' meanhvws'],'Labels',{...
     'SC-MOPSO','m-MOPSO','MOPSO','NSGA-II','WS-VLPSO'});
-title('Comparison between SC-MOPSO and other algorithms in terms of HV for CEC2020 functions')
+title('Comparison between SC-MOPSO and other algorithms in terms of HV for Fonseca & ZDT functions')
 set(gcf,'color','w');
 set(gca,'FontSize',12);
 set(h,'LineWidth', 2);
@@ -86,11 +86,11 @@ MOPSO =  meanhvwm';
 NSGA_II = meanhvn2';
 WS_VLPSO = meanhvws'; 
 T=table (SC_MOPSO,m_MOPSO,MOPSO,NSGA_II,WS_VLPSO);
-filename=[cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of HV for CEC2020 functions.xlsx'];
+filename=[cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of HV for Fonseca & ZDT functions.xlsx'];
 writetable(T,filename,'Sheet',1)
 %%
 f2=figure;
-title('HV T-Test for CEC2020 functions');
+title('HV T-Test for Fonseca & ZDT functions');
 set(gcf,'color','w');
 set(gca,'FontSize',16);
 set(gcf,'units','normalized','outerposition',[0 0 1 1])

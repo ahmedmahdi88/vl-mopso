@@ -1,6 +1,6 @@
 % clear;close all;
 cont = 1;
-for problemNumber=[1:5]
+for problemNumber=[10:14]
 for Scenario=1:10
    AddRequiredPaths;
     pareto = res.paretoFront
@@ -35,7 +35,7 @@ end
 f1=figure;
 h=boxplot([meanDeltavl' meanDelta' meanDeltawm'  meanDeltan2' meanDeltaws' ],'Labels',{...
    'SC-MOPSO','m-MOPSO','MOPSO','NSGA-II','WS-VLPSO'});
-title('Comparison between SC-MOPSO and other algorithms in terms of Delta for CEC2020 functions')
+title('Comparison between SC-MOPSO and other algorithms in terms of Delta for Fonseca & ZDT functions')
 set(gcf,'color','w');
 set(gca,'FontSize',12);
 set(h,'LineWidth', 2);
@@ -48,11 +48,11 @@ MOPSO = meanDeltawm';
 NSGA_II = meanDeltan2';
 WS_VLPSO = meanDeltaws'; 
 T=table (SC_MOPSO,m_MOPSO,MOPSO,NSGA_II,WS_VLPSO);
-filename = [cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of Delta for CEC2020 mathematical functions.xlsx'];
+filename = [cd '/tables/Comparison between SC-MOPSO and other algorithms in terms of Delta for Fonseca & ZDT functions.xlsx'];
 writetable(T,filename,'Sheet',1)
 %%
 f2=figure;
-title('Delta T-Test for CEC2020 functions');
+title('Delta T-Test for Fonseca & ZDT functions');
 set(gca,'FontSize',16);
 set(gcf,'color','w');
 set(gcf,'units','normalized','outerposition',[0 0 1 1])
